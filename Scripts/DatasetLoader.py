@@ -3,7 +3,7 @@ import os
 from scipy.spatial.transform import Rotation
 from PIL import Image
 from tqdm import tqdm
-
+from DataUtils import video_to_frames, unzipFolder
 
 def load_depth(path, confidence=None, filter_level=0):
     if path[-4:] == '.npy':
@@ -31,15 +31,23 @@ class DatasetLoader():
         self.imu = np.loadtxt(os.path.join(path, 'imu.csv'), delimiter=',', skiprows=1)
 
         rgb_dir = os.path.join(path, 'images')
+        if not os.path.exists(rgb_dir):
+            video_to_frames(path + "rgb.mp3", rgb_dir)
+
         rgb_files = [os.path.join(rgb_dir, p) for p in sorted(os.listdir(rgb_dir))]
         self.rgb_files = [f for f in rgb_files if '.npy' in f or '.png' in f]
 
         confidence_dir = os.path.join(path, 'confidence')
+        if not os.path.isdir(confidence_dir):
+            unzipFolder(os.path.join(path, 'confidence.zip'))
+
         conf_files = [os.path.join(confidence_dir, p) for p in sorted(os.listdir(confidence_dir))]
         self.conf_files = [f for f in conf_files if '.npy' in f or '.png' in f]
 
        
         depth_dir = os.path.join(path, 'depth')
+        if not os.path.isdir(depth_dir):
+            unzipFolder(os.path.join(path, 'depth.zip'))
         depth_files = [os.path.join(depth_dir, p) for p in sorted(os.listdir(depth_dir))]
         self.depth_files = [f for f in depth_files if '.npy' in f or '.png' in f or '.tiff' in f]
 
