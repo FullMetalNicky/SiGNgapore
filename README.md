@@ -1,6 +1,6 @@
 # SiGNgapore - An Interactive Dataset for Mapless Navigation with Visual Sign Grounding
 
-Our dataset is available for download [here]().
+Our dataset is available for download [here](https://drive.google.com/drive/folders/19mY5V9EvInMePndl342gCu6QuMp5SbQS?usp=sharing).
 
 ## Data Manipulation
 We provide, `DatasetLoader.py`, a data loading class. 
