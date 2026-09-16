@@ -32,7 +32,7 @@ class DatasetLoader():
 
         rgb_dir = os.path.join(path, 'images')
         if not os.path.exists(rgb_dir):
-            video_to_frames(path + "rgb.mp3", rgb_dir)
+            video_to_frames(path + "rgb.mp4", rgb_dir)
 
         rgb_files = [os.path.join(rgb_dir, p) for p in sorted(os.listdir(rgb_dir))]
         self.rgb_files = [f for f in rgb_files if '.npy' in f or '.png' in f]
