@@ -134,6 +134,16 @@ be = BenchmarkEngine(rootFolder, algorithm, outputFolder)
 be.RunAll()
 ```
 
+## Cite us!
+```
+@article{zimmerman2026arxiv,
+  title={SiGNgapore - An Interactive Dataset for Sign-based Visual Navigationm},
+  author={Nicky Zimmerman and Joel Loo and Zishuo Wang and David Hsu},
+  journal = {arXiv preprint},
+  eprint   = {2610.09488} ,
+  year={2026}
+}
+```
 
 
 
